@@ -13,7 +13,10 @@ use Illuminate\Support\Facades\File;
             return cache()->remember("posts.{$slug}", 1200, fn() => file_get_contents($path));
         }
         public static function all(){
-            return File::files(resource_path("posts/"));
+            $files = File::files(resource_path("posts/"));
+            return array_map(function($file){
+                return $file->getContents();
+            }, $files);
         }
     }
 ?>
