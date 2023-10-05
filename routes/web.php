@@ -18,18 +18,12 @@ Route::get('/', function () {
 });
 
 Route::get('/posts/{post}', function($slug){
-    $path = __DIR__ . "/../resources/posts/{$slug}.php";
+    //Find a post by it's slug and pass it a view called post
+    // if(!file_exists($path = __DIR__ . "/../resources/posts/{$slug}.php")){
+    //     return redirect("/");
+    //     //abort(404);
+    // }
+    // $post = cache()->remember("posts.{$slug}", 1200, fn() => file_get_contents($path));
 
-    if(!file_exists($path)){
-        return redirect("/");
-        //abort(404);
-    }
-    cache()->remember("posts.{$slug}", 5, function()use($path){
-        var_dump("file_get_contents");
-        return file_get_contents($path);
-    });
-
-    // return view("post", [
-    //     "post" => $post
-    // ]);
+    // return view("post", ["post" => $post]);
 })->where("post", "[A-z_\-]+");
