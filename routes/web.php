@@ -26,11 +26,10 @@ Route::get('/', function () {
             $document->title, 
             $document->excerpt, 
             $document->date, 
-            $document->body, 
+            $document->body(), 
         );
     }
 
-    ddd($posts);
     return view("posts", [
         "posts" => $posts
     ]);
