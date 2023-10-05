@@ -20,12 +20,9 @@
         }
 
         public static function find($slug){
-            base_path();
-            if(!file_exists($path = resource_path("posts/{$slug}.php"))){
-                throw new ModelNotFoundException();
-                //abort(404);
-            }
-            return cache()->remember("posts.{$slug}", 1200, fn() => file_get_contents($path));
+           //Of all the blog post, find the one with a matching slug
+           $posts = static::all();
+           dd($posts->firstWhere("slug", $slug));
         }
         public static function all(){
             return collect(File::files(resource_path("posts")))
