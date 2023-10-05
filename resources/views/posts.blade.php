@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 
     @foreach($posts as $post)
     <article>
@@ -13,3 +12,4 @@
         </div>
     </article>
     @endforeach
+
