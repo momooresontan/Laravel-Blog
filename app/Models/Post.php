@@ -20,9 +20,7 @@
         }
 
         public static function find($slug){
-           //Of all the blog post, find the one with a matching slug
-           $posts = static::all();
-           dd($posts->firstWhere("slug", $slug));
+           return static::all()->firstWhere("slug", $slug);
         }
         public static function all(){
             return collect(File::files(resource_path("posts")))
@@ -34,7 +32,7 @@
                     $document->body(), 
                     $document->slug, 
                 )
-            );
+            )->sortByDesc("date");
         }
     }
 ?>
