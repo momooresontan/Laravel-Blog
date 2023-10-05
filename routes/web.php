@@ -30,6 +30,7 @@ Route::get('/', function () {
         );
     }
 
+    ddd($posts);
     return view("posts", [
         "posts" => $posts
     ]);
