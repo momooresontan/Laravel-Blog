@@ -16,12 +16,6 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 */
 
 Route::get('/', function () {
-    $document = YamlFrontMatter::parseFile(
-        resource_path("posts/my-first-post.php")
-    );
-
-    ddd($document);
-
     // return view("posts", [
     //     "posts" => Post::all()
     // ]);
