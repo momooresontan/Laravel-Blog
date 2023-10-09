@@ -22,9 +22,9 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/posts/{post}', function($slug){
+Route::get('/posts/{post}', function($id){
     //Find a post by it's slug and pass it a view called post
-    $post = Post::findOrFail($slug);
+    $post = Post::findOrFail($id);
     return view("post", [
         "post" => $post
     ]);
