@@ -17,11 +17,13 @@ class="transition-colors duration-300 hover:bg-gray-100 border border-black bord
 
             <div class="mt-4">
                 <h1 class="text-3xl">
-                    {{ $post->title }}
+                    <a href="/posts/{{ $post->slug }}">
+                        {{ $post->title }}
+                    </a>
                 </h1>
 
                 <span class="mt-2 block text-gray-400 text-xs">
-                        Published <time>1 day ago</time>
+                        Published <time>{{ $post->created_at->diffForHumans() }}</time>
                     </span>
             </div>
         </header>
