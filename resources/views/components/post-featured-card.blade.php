@@ -24,7 +24,7 @@ class="transition-colors duration-300 hover:bg-gray-100 border border-black bord
 
                 <span class="mt-2 block text-gray-400 text-xs">
                         Published <time>{{ $post->created_at->diffForHumans() }}</time>
-                    </span>
+                </span>
             </div>
         </header>
 
