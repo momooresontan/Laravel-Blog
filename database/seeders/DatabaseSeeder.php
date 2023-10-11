@@ -42,7 +42,7 @@ class DatabaseSeeder extends Seeder
             "title"=>"My Family Post",    
             "slug"=>"my-first-post",    
             "excerpt"=>"Integer leo mi, consectetur eget erat ac, gravida fringilla mauris",    
-            "body"=>"Integer leo mi, consectetur eget erat ac, gravida fringilla mauris. Aliquam libero dui, venenatis rhoncus vestibulum ut, semper sed ex. Praesent suscipit tincidunt nibh vel sollicitudin. Fusce malesuada, est finibus porttitor pellentesque, turpis sapien aliquam nisl, eget sagittis odio libero vitae tortor. Quisque quis libero malesuada, rutrum ex sed, mollis velit. Aenean libero erat, sagittis quis tristique eget, suscipit at est. Sed cursus tortor et lorem pulvinar, at facilisis risus eleifend. Nam laoreet tempor blandit.",    
+            "body"=>"<p>Integer leo mi, consectetur eget erat ac, gravida fringilla mauris. Aliquam libero dui, venenatis rhoncus vestibulum ut, semper sed ex. Praesent suscipit tincidunt nibh vel sollicitudin. Fusce malesuada, est finibus porttitor pellentesque, turpis sapien aliquam nisl, eget sagittis odio libero vitae tortor. Quisque quis libero malesuada, rutrum ex sed, mollis velit. Aenean libero erat, sagittis quis tristique eget, suscipit at est. Sed cursus tortor et lorem pulvinar, at facilisis risus eleifend. Nam laoreet tempor blandit.</p>",    
         ]);
         Post::create([
             "user_id"=>$user->id,
@@ -50,7 +50,7 @@ class DatabaseSeeder extends Seeder
             "title"=>"My Work Post",    
             "slug"=>"my-work-post",    
             "excerpt"=>"Integer leo mi, consectetur eget erat ac, gravida fringilla mauris",    
-            "body"=>"Integer leo mi, consectetur eget erat ac, gravida fringilla mauris. Aliquam libero dui, venenatis rhoncus vestibulum ut, semper sed ex. Praesent suscipit tincidunt nibh vel sollicitudin. Fusce malesuada, est finibus porttitor pellentesque, turpis sapien aliquam nisl, eget sagittis odio libero vitae tortor. Quisque quis libero malesuada, rutrum ex sed, mollis velit. Aenean libero erat, sagittis quis tristique eget, suscipit at est. Sed cursus tortor et lorem pulvinar, at facilisis risus eleifend. Nam laoreet tempor blandit.",    
+            "body"=>"<p>Integer leo mi, consectetur eget erat ac, gravida fringilla mauris. Aliquam libero dui, venenatis rhoncus vestibulum ut, semper sed ex. Praesent suscipit tincidunt nibh vel sollicitudin. Fusce malesuada, est finibus porttitor pellentesque, turpis sapien aliquam nisl, eget sagittis odio libero vitae tortor. Quisque quis libero malesuada, rutrum ex sed, mollis velit. Aenean libero erat, sagittis quis tristique eget, suscipit at est. Sed cursus tortor et lorem pulvinar, at facilisis risus eleifend. Nam laoreet tempor blandit.</p>",    
         ]);
 
 
