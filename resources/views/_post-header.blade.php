@@ -15,13 +15,13 @@
         <!--  Category -->
         <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl">
 
-            <div>
-                <button>Categories</button>
+            <div x-data="{ show: false }">
+                <button @click=" show = !show ">Categories</button>
 
-                <div>
-                    <a href="#">One</a>
-                    <a href="#">Two</a>
-                    <a href="#">Three</a>
+                <div x-show="show">
+                    <a href="#" class="block">One</a>
+                    <a href="#" class="block">Two</a>
+                    <a href="#" class="block">Three</a>
                 </div>
             </div>
 
