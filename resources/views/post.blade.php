@@ -13,7 +13,7 @@
                     <div class="flex items-center lg:justify-center text-sm mt-4">
                         <img src="/images/lary-avatar.svg" alt="Lary avatar">
                         <div class="ml-3 text-left">
-                            <h5 class="font-bold">Lary Laracore</h5>
+                            <h5 class="font-bold">{{ $post->author->name }}</h5>
                             <h6>Mascot at Laracasts</h6>
                         </div>
                     </div>
@@ -21,7 +21,7 @@
 
                 <div class="col-span-8">
                     <div class="hidden lg:flex justify-between mb-6">
-                        <a href="#"
+                        <a href="/"
                             class="transition-colors duration-300 relative inline-flex items-center text-lg hover:text-blue-500">
                             <svg width="22" height="22" viewBox="0 0 22 22" class="mr-2">
                                 <g fill="none" fill-rule="evenodd">
@@ -37,18 +37,14 @@
                         </a>
 
                         <div class="space-x-2">
-                            <a href="#"
+                            <a href="/categories/{{ $post->category->slug }}"
                                 class="px-3 py-1 border border-blue-300 rounded-full text-blue-300 text-xs uppercase font-semibold"
-                                style="font-size: 10px">Techniques</a>
-                            <a href="#"
-                                class="px-3 py-1 border border-red-300 rounded-full text-red-300 text-xs uppercase font-semibold"
-                                style="font-size: 10px">Updates</a>
+                                style="font-size: 10px">{{ $post->category->name }}</a>
                         </div>
                     </div>
 
                     <h1 class="font-bold text-3xl lg:text-4xl mb-10">
-                        This is a big title and it will look great on two or even three
-                        lines. Wooohoo!
+                        {{ $post->title }}
                     </h1>
 
                     <div class="space-y-4 lg:text-lg leading-loose">
