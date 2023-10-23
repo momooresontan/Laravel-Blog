@@ -16,11 +16,10 @@ class Post extends Model
     //Search
     public function scopeFilter($query, array $filters) // Post::newQuery()->filter()
     {
-        $query->when($filters['search'] ?? false, function( $query, $search ){
+        $query->when($filters['search'] ?? false, fn ( $query, $search ) =>
             $query
-            ->where('title', 'like', '%' . $search . '%')
-            ->orWhere('body', 'like', '%' . $search . '%');
-        });
+                ->where('title', 'like', '%' . $search . '%')
+                ->orWhere('body', 'like', '%' . $search . '%'));
     } 
 
     //protected $fillable = ["title", "excerpt", "slug", "body"];
