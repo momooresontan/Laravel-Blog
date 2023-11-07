@@ -9,9 +9,16 @@ use App\Models\Post;
 class PostController extends Controller
 {
     public function index(){
-        return view("posts.index", [
-            "posts" => Post::latest()->filter(request(['search', 'category', 'author']))->get(),
-        ]);
+
+        return Post::latest()->filter(
+            request(['search', 'category', 'author'])
+        )->get();
+
+        // return view("posts.index", [
+        //     "posts" => Post::latest()->filter(
+        //         request(['search', 'category', 'author'])
+        //     )->paginate(),
+        // ]);
     }
 
     public function show(Post $post){
