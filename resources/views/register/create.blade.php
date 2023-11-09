@@ -50,6 +50,10 @@
                         Submit
                     </button>
                 </div>
+
+                @foreach($error->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
             </form>
         </main>
     </section>
