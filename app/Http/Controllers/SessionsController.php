@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Validation\ValidationException;
 
 class SessionsController extends Controller
 {
@@ -18,9 +19,12 @@ class SessionsController extends Controller
         }
 
         //Failed validation
-        return back()
-            ->withInput()
-            ->withErrors(['email'=>'Invalid email or password']);
+        //Validation Exception
+        throw ValidationException::withMessages(['email'=>'Invalid email or password']);
+
+        // return back()
+        //     ->withInput()
+        //     ->withErrors(['email'=>'Invalid email or password']);
     }
     public function destroy(){
         auth()->logout();
