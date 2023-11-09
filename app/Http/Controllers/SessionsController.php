@@ -18,7 +18,9 @@ class SessionsController extends Controller
         }
 
         //Failed validation
-        return back()->withErrors(['email'=>'Your provided credentials could not be verified']);
+        return back()
+            ->withInput()
+            ->withErrors(['email'=>'Invalid email or password']);
     }
     public function destroy(){
         auth()->logout();
