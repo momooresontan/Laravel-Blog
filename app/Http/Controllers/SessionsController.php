@@ -14,13 +14,14 @@ class SessionsController extends Controller
             'password'=>'required',
         ]);
 
-        if(auth()->attempt($attributes)){
-            return redirect('/')->with('success', 'Welcome back!');
+        if(!auth()->attempt($attributes)){
+            //Failed validation
+            //Validation Exception
+            throw ValidationException::withMessages(['email'=>'Invalid email or password']);
         }
-
-        //Failed validation
-        //Validation Exception
-        throw ValidationException::withMessages(['email'=>'Invalid email or password']);
+        
+        session()->regenerate();
+        return redirect('/')->with('success', 'Welcome back!');
 
         // return back()
         //     ->withInput()
