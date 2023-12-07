@@ -52,7 +52,22 @@
                 </div>
 
                 <section class="col-span-8 col-start-5 mt-10 space-y-6">
-                    <x-post-comment />
+
+                    <form method="POST" action="#" class=" border border-gray-200 p-6 rounded-xl">
+                        @csrf
+                        <header class="flex items-center">
+                            <img src="https://i.pravatar.cc/60?u={{ auth()->id() }}" alt="" width="40" height="40" class="rounded-full">
+                            <h2 class="ml-4">Want to participate?</h2>
+                        </header>
+                        <div class="mt-5">
+                            <textarea name="body" class="w-full text-sm focus:outline-none focus:ring" cols="30" rows="10" placeholder="Say something"></textarea>
+                        </div>
+
+                    </form>
+
+                    @foreach ($post->comments as $comment)
+                    <x-post-comment :comment="$comment" />
+                    @endforeach
                 </section>
 
             </article>
