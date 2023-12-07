@@ -62,6 +62,9 @@
                         <div class="mt-5">
                             <textarea name="body" class="w-full text-sm focus:outline-none focus:ring" cols="30" rows="10" placeholder="Say something"></textarea>
                         </div>
+                        <div class="flex justify-end mt-8 border-t border-gray-200 ">
+                            <button type="submit" class="bg-blue-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-blue-600">Post</button>
+                        </div>
 
                     </form>
 
