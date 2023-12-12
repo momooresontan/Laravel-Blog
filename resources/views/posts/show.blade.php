@@ -61,6 +61,10 @@
                             </header>
                             <div class="mt-5">
                                 <textarea name="body" class="w-full text-sm focus:outline-none focus:ring" rows="5" placeholder="Say something"></textarea>
+                                
+                                @error('body')
+                                    <span class="text-xs text-red-500">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="flex justify-end mt-5 border-t border-gray-200 pt-3 ">
                                 <button type="submit" class="bg-blue-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-blue-600">Post</button>
