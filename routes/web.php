@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\File;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,7 +24,8 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 |
 */
 
-Route::get('ping', function() {
+Route::post('newsletter', function () {
+    request()->validate([ 'email' => 'required|email' ]);
     $mailchimp = new \MailchimpMarketing\ApiClient();
 
     $mailchimp->setConfig([
@@ -30,8 +33,12 @@ Route::get('ping', function() {
         'server' => 'us11'
     ]);
 
-    $response = $mailchimp->ping->get();
-    ddd($response);
+    $response = $mailchimp->lists->addListMember('', [
+        'email_address' => request('email'),
+        'status' => 'subscribed'
+    ]);
+
+    return redirect('/')->with('success','You are now signed up for our newsletter');
 });
 
 Route::get('/', [PostController::class, 'index'])->name("home");
