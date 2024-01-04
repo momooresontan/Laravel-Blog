@@ -69,8 +69,14 @@
                                 <img src="/images/mailbox-icon.svg" alt="mailbox letter">
                             </label>
 
-                            <input id="email" name="email" type="text" placeholder="Your email address"
+                            <div>
+                                <input id="email" name="email" type="text" placeholder="Your email address"
                                    class="lg:bg-transparent py-2 lg:py-0 pl-4 focus-within:outline-none">
+                                
+                                @error('email')
+                                <span class="text-xs text-red-500">{{ $message }}</span>
+                                @enderror
+                            </div>
                         </div>
 
                         <button type="submit"

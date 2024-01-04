@@ -4,35 +4,19 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostCommentsController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
-use App\Models\Category;
-use App\Models\Post;
-use App\Models\User;
+use App\Services\Newsletter;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\File;
-use Spatie\YamlFrontMatter\YamlFrontMatter;
+use Illuminate\Validation\ValidationException;
 
 require_once('C:\Users\Sontan Momooreoluwa\Desktop\Laravel Projects\blog\vendor\autoload.php');
 
 Route::post('newsletter', function () {
     request()->validate([ 'email' => 'required|email' ]);
-    $mailchimp = new \MailchimpMarketing\ApiClient();
-
-    $mailchimp->setConfig([
-        'apiKey' => config('services.mailchimp.key'),
-        'server' => 'us11'
-    ]);
-    // $response = $mailchimp->lists->addListMember('e08a118052', [
-    //     'email_address' => 'momooresontan@yahoo.com',
-    //     'status' => 'subscribed'
-    // ]);
-    // ddd($response);
+    
     try{
-        $response = $mailchimp -> lists -> addListMember('e08a118052', [
-            'email_address' => request('email'),
-            'status' => 'subscribed'
-        ]);
+        (new Newsletter())->subscribe(request('email'));
     } catch(\Exception $e){
-        \Illuminate\Validation\ValidationException::withMessages([
+        throw ValidationException::withMessages([
             'email' => 'This email could not be added to our newsletter list'
         ]);
     }
