@@ -11,18 +11,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\File;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 
-
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+require_once('C:\Users\Sontan Momooreoluwa\Desktop\Laravel Projects\blog\vendor\autoload.php');
 
 Route::post('newsletter', function () {
     request()->validate([ 'email' => 'required|email' ]);
@@ -32,18 +21,23 @@ Route::post('newsletter', function () {
         'apiKey' => config('services.mailchimp.key'),
         'server' => 'us11'
     ]);
+    // $response = $mailchimp->lists->addListMember('e08a118052', [
+    //     'email_address' => 'momooresontan@yahoo.com',
+    //     'status' => 'subscribed'
+    // ]);
+    // ddd($response);
     try{
-        $mailchimp->lists->addListMember('', [
+        $response = $mailchimp -> lists -> addListMember('e08a118052', [
             'email_address' => request('email'),
             'status' => 'subscribed'
         ]);
     } catch(\Exception $e){
         \Illuminate\Validation\ValidationException::withMessages([
             'email' => 'This email could not be added to our newsletter list'
-        ])
+        ]);
     }
 
-    return redirect('/')->with('success','You are now signed up for our newsletter');
+    return redirect('/')->with('success', 'You are now signed up for our newsletter');
 });
 
 Route::get('/', [PostController::class, 'index'])->name("home");
