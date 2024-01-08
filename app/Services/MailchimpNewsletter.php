@@ -5,7 +5,7 @@ require_once('C:\Users\Sontan Momooreoluwa\Desktop\Laravel Projects\blog\vendor\
 
 use MailchimpMarketing\ApiClient;
 
-class MailchimpNewsletter{
+class MailchimpNewsletter implements Newsletter{ 
     public function __construct(protected ApiClient $client){
 
     }

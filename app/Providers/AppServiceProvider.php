@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Services\MailchimpNewsletterNewsletter;
+use App\Services\MailchimpNewsletter;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
