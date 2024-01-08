@@ -1,19 +1,25 @@
 <?php
 namespace App\Services;
 
+require_once('C:\Users\Sontan Momooreoluwa\Desktop\Laravel Projects\blog\vendor\autoload.php');
+
 use MailchimpMarketing\ApiClient;
 
 class Newsletter{
-    public function subscribe( string $email ){
-        $mailchimp = new ApiClient();
+    public function subscribe(string $email, string $list = null){
+        $list ??= config('services.mailchimp.lists.subscribers');
 
-        $mailchimp->setConfig([
+        return $this->client()->lists->addListMember($list, [
+            'email_address' => $email,
+            'status' => 'subscribed'
+        ]);
+    }
+
+    protected function client(){
+
+        return (new ApiClient())->setConfig([
             'apiKey' => config('services.mailchimp.key'),
             'server' => 'us11'
-        ]);
-        return $mailchimp -> lists -> addListMember('e08a118052', [
-            'email_address' => request($email),
-            'status' => 'subscribed'
         ]);
     }
 }
