@@ -6,6 +6,10 @@ require_once('C:\Users\Sontan Momooreoluwa\Desktop\Laravel Projects\blog\vendor\
 use MailchimpMarketing\ApiClient;
 
 class Newsletter{
+    public function __construct(protected ApiClient $client){
+
+    }
+
     public function subscribe(string $email, string $list = null){
         $list ??= config('services.mailchimp.lists.subscribers');
 
@@ -17,7 +21,7 @@ class Newsletter{
 
     protected function client(){
 
-        return (new ApiClient())->setConfig([
+        return $this->client()->setConfig([
             'apiKey' => config('services.mailchimp.key'),
             'server' => 'us11'
         ]);
