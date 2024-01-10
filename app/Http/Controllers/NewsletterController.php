@@ -10,9 +10,7 @@ use Illuminate\Validation\ValidationException;
 class NewsletterController extends Controller
 {
     //Single action controller
-    public function __invoke(Newsletter $newsletter){
-        ddd($newsletter);
-        
+    public function __invoke(Newsletter $newsletter){        
         request()->validate([ 'email' => 'required|email' ]);
         
         try{

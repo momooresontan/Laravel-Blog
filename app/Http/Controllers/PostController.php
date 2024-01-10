@@ -21,4 +21,8 @@ class PostController extends Controller
             "post" => $post
         ]);
     }
+
+    public function create(Post $post){
+        return view("posts.create");
+    }
 }
