@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
+use Illuminate\Validation\Rule;
 use Symfony\Component\HttpFoundation\Response;
 
 class PostController extends Controller
@@ -27,10 +28,16 @@ class PostController extends Controller
     }
 
     public function store(){
-        request()->validate([
+        $attributes = request()->validate([
             'title' => 'required',
             'excerpt' => 'required',
-            'body' => 'required'
+            'body' => 'required',
+            'category_id' => ['required', Rule::exists('categories', 'id')]
         ]);
+        $attributes['user_id'] = auth()->id();
+
+        Post::create($attributes);
+
+        return redirect('/');
     }
 }
