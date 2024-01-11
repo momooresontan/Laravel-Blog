@@ -26,8 +26,8 @@
                     @enderror
                 </div>
                 <div class="mb-6">
-                    <label for="category" class="block mb-2 uppercase font-bold text-xs text-gray-700">Category</label>
-                    <select name="category" id="category">
+                    <label for="category_id" class="block mb-2 uppercase font-bold text-xs text-gray-700">Category</label>
+                    <select name="category_id" id="category_id">
                         @php
                           $categories = \App\Models\Category::all();  
                         @endphp
