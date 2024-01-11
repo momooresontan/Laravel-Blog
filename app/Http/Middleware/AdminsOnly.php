@@ -19,7 +19,7 @@ class AdminsOnly
         if(auth()->user()?->username !== 'momo'){
             abort(Response::HTTP_FORBIDDEN);
         }
-
+        
         return $next($request);
     }
 }
