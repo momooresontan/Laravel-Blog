@@ -8,12 +8,10 @@
         <div class="mt-5">
             <textarea name="body" class="w-full text-sm focus:outline-none focus:ring" rows="5" placeholder="Say something" required></textarea>
             
-            @error('body')
-                <span class="text-xs text-red-500">{{ $message }}</span>
-            @enderror
+            <x-form.error name="body"/>
         </div>
         <div class="flex justify-end mt-5 border-t border-gray-200 pt-3 ">
-            <x-submit-button>Post</x-submit-button>
+            <x-form.button>Post</x-form.button>
         </div>
     </form>
 @else

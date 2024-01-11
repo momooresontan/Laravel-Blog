@@ -24,7 +24,7 @@
                         </select>
                         <x-form.error name="category"/>
                 </x-form.field>                    
-                <x-submit-button>Publish</x-submit-button>
+                <x-form.button>Publish</x-form.button>
             </form>
 
 
