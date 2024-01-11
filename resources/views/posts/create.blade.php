@@ -1,5 +1,6 @@
 <x-layout>
     <section class="px-6 py-8">
+        <h1 class="text-lg font-bold mb-4">Publish New Post</h1>
         <x-panel class="max-w-sm mx-auto">
             <form action="/admin/posts" method="POST">
                 @csrf
@@ -40,7 +41,9 @@
                           $categories = \App\Models\Category::all();  
                         @endphp
                         @foreach ($categories as $category)
-                            <option value="{{ $category->id }}">{{ ucwords($category->name) }}</option>
+                            <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                                {{ ucwords($category->name) }}
+                            </option>
                         @endforeach
 
                     </select>
