@@ -23,11 +23,6 @@ class PostController extends Controller
     }
 
     public function create(){
-        //Allow a single user access to a page
-        if(auth()->user()?->username !== 'momo'){
-            abort(Response::HTTP_FORBIDDEN);
-        }
-
         return view("posts.create");
     }
 }
