@@ -1,8 +1,8 @@
 <x-layout>
-    <section class="px-6 py-8">
+    <section class="py-8 max-w-md mx-auto">
         <h1 class="text-lg font-bold mb-4">Publish New Post</h1>
-        <x-panel class="max-w-sm mx-auto">
-            <form action="/admin/posts" method="POST">
+        <x-panel>
+            <form action="/admin/posts" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-6">
                     <label for="title" class="block mb-2 uppercase font-bold text-xs text-gray-700">Title</label>
@@ -20,6 +20,16 @@
                         <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                     @enderror
                 </div>
+
+                <div class="mb-6">
+                    <label for="slug" class="block mb-2 uppercase font-bold text-xs text-gray-700">Thumbnail</label>
+                    <input class="border border-gray-400 p-2 w-full" value="{{ old('slug') }}" type="file" name="thumbnail" id="thumbnail" required>
+                    
+                    @error('slug')
+                        <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                    @enderror
+                </div>
+
                 <div class="mb-6">
                     <label for="excerpt" class="block mb-2 uppercase font-bold text-xs text-gray-700">Excerpt</label>
                     <textarea class="border border-gray-400 p-2 w-full" name="excerpt" id="excerpt" required>{{ old('excerpt') }}</textarea>
