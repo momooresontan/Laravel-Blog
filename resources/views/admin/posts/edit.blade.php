@@ -4,7 +4,11 @@
             @csrf
             <x-form.input name='title' :value="old('title', $post->title)"/>
             <x-form.input name='slug' :value="old('slug', $post->slug)"/>
-            <x-form.input name='thumbnail' type='file' :value="old('thumbnail', $post->thumbnail)"/>
+            <div>
+                <x-form.input name='thumbnail' type='file' :value="old('thumbnail', $post->thumbnail)"/>
+                <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="" class="rounded-xl" width="50">
+            </div>
+            
             <x-form.textarea name='excerpt'>{{ old('excerpt', $post->excerpt) }}</x-form.textarea>
             <x-form.textarea name='body'>{{ old('body', $post->body) }}</x-form.textarea>
 
@@ -15,7 +19,7 @@
                           $categories = \App\Models\Category::all();  
                         @endphp
                         @foreach ($categories as $category)
-                            <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                            <option value="{{ $category->id }}" {{ old('category_id', $post->category_id) == $category->id ? 'selected' : '' }}>
                                 {{ ucwords($category->name) }}
                             </option>
                         @endforeach
