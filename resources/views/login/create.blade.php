@@ -9,7 +9,7 @@
                     <x-form.input name="email" type="email" autocomplete="username" />
                     <x-form.input name="password" type="password" autocomplete="new-password"/>
 
-                <x-form.button>LogIn</x-form.button>
+                    <x-form.button>LogIn</x-form.button>
 
                 {{-- @if($errors->any())
                         <ul>
