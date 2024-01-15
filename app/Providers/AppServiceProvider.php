@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Services\Newsletter;
 use App\Services\MailchimpNewsletter;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 use MailchimpMarketing\ApiClient;
@@ -33,5 +34,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Model::unguard();
+
+        Gate::define('admin', function(User $user){
+            
+        });
     }
 }
