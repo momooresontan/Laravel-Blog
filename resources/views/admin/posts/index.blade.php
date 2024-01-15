@@ -2,7 +2,7 @@
     <x-setting heading="Manage Post">
         <div class="flex flex-col">
             <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
-                <div class="inline-block py-2 min-w-full shadow rounded-lg border-t border-gray-200 overflow-hidden">
+                <div class="inline-block py-2 min-w-full align-middle shadow rounded-lg border-t border-gray-200 overflow-hidden">
                     <table class="min-w-full leading-normal">
                         <tbody>
                             @foreach($posts as $post)
@@ -11,7 +11,9 @@
                                         <div class="flex items-center">
                                             <div class="ml-3">
                                                 <p class="text-gray-900 whitespace-no-wrap">
-                                                    {{ $post->title }}
+                                                    <a href="/posts/{{ $post->slug }}">
+                                                        {{ $post->title }}
+                                                    </a>
                                                 </p>
                                             </div>
                                         </div>
