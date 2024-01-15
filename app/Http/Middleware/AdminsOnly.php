@@ -16,7 +16,7 @@ class AdminsOnly
     public function handle(Request $request, Closure $next): Response
     {
         //Allow a single user access to a page
-        if(auth()->user()?->username !== 'murray'){
+        if(auth()->user()?->username !== 'sammy'){
             abort(Response::HTTP_FORBIDDEN);
         }
         
